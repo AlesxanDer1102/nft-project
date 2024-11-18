@@ -1,13 +1,161 @@
-```text
-    data:image/svg+xml;base64, //before encode svg
+# NFT Dynamic Project
+
+**This project is a dynamic NFT system that leverages Ethereum's capabilities and integrates with IPFS for decentralized storage.** The NFTs are designed to evolve based on specific conditions or external triggers, offering a unique and interactive experience for users.
+
+## Features
+
+- **Dynamic NFTs**: These NFTs change their metadata or visual representation based on predefined conditions.
+- **IPFS Integration**: Ensures that all NFT metadata and assets are stored in a decentralized and immutable manner.
+- **Secure and Transparent**: Built on Ethereum, ensuring reliability and trust through blockchain technology.
+- **Efficient Development**: Built using Foundry, a powerful Ethereum development toolkit.
+
+---
+
+## Foundry
+
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+
+Foundry consists of:
+
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat, and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions, and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose Solidity REPL.
+
+## Documentation
+
+For more details, visit the [Foundry Book](https://book.getfoundry.sh/).
+
+---
+
+## Usage
+
+### Build
+
+Compile the Solidity contracts:
+
+```shell
+$ forge build
 ```
 
-Happy SVG:
-data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiBmaWxsPSJ5ZWxsb3ciIHI9Ijc4IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIC8+CiAgPGcgY2xhc3M9ImV5ZXMiPgogICAgPGNpcmNsZSBjeD0iNzAiIGN5PSI4MiIgcj0iMTIiIC8+CiAgICA8Y2lyY2xlIGN4PSIxMjciIGN5PSI4MiIgcj0iMTIiIC8+CiAgPC9nPgogIDxwYXRoIGQ9Im0xMzYuODEgMTE2LjUzYy42OSAyNi4xNy02NC4xMSA0Mi04MS41Mi0uNzMiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTogYmxhY2s7IHN0cm9rZS13aWR0aDogMzsiIC8+Cjwvc3ZnPg==
+### Test
 
-Sad SVG:
-data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNHB4IiBoZWlnaHQ9IjEwMjRweCIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsPSIjMzMzIgogICAgZD0iTTUxMiA2NEMyNjQuNiA2NCA2NCAyNjQuNiA2NCA1MTJzMjAwLjYgNDQ4IDQ0OCA0NDggNDQ4LTIwMC42IDQ0OC00NDhTNzU5LjQgNjQgNTEyIDY0em0wIDgyMGMtMjA1LjQgMC0zNzItMTY2LjYtMzcyLTM3MnMxNjYuNi0zNzIgMzcyLTM3MiAzNzIgMTY2LjYgMzcyIDM3Mi0xNjYuNiAzNzItMzcyIDM3MnoiIC8+CiAgPHBhdGggZmlsbD0iI0U2RTZFNiIKICAgIGQ9Ik01MTIgMTQwYy0yMDUuNCAwLTM3MiAxNjYuNi0zNzIgMzcyczE2Ni42IDM3MiAzNzIgMzcyIDM3Mi0xNjYuNiAzNzItMzcyLTE2Ni42LTM3Mi0zNzItMzcyek0yODggNDIxYTQ4LjAxIDQ4LjAxIDAgMCAxIDk2IDAgNDguMDEgNDguMDEgMCAwIDEtOTYgMHptMzc2IDI3MmgtNDguMWMtNC4yIDAtNy44LTMuMi04LjEtNy40QzYwNCA2MzYuMSA1NjIuNSA1OTcgNTEyIDU5N3MtOTIuMSAzOS4xLTk1LjggODguNmMtLjMgNC4yLTMuOSA3LjQtOC4xIDcuNEgzNjBhOCA4IDAgMCAxLTgtOC40YzQuNC04NC4zIDc0LjUtMTUxLjYgMTYwLTE1MS42czE1NS42IDY3LjMgMTYwIDE1MS42YTggOCAwIDAgMS04IDguNHptMjQtMjI0YTQ4LjAxIDQ4LjAxIDAgMCAxIDAtOTYgNDguMDEgNDguMDEgMCAwIDEgMCA5NnoiIC8+CiAgPHBhdGggZmlsbD0iIzMzMyIKICAgIGQ9Ik0yODggNDIxYTQ4IDQ4IDAgMSAwIDk2IDAgNDggNDggMCAxIDAtOTYgMHptMjI0IDExMmMtODUuNSAwLTE1NS42IDY3LjMtMTYwIDE1MS42YTggOCAwIDAgMCA4IDguNGg0OC4xYzQuMiAwIDcuOC0zLjIgOC4xLTcuNCAzLjctNDkuNSA0NS4zLTg4LjYgOTUuOC04OC42czkyIDM5LjEgOTUuOCA4OC42Yy4zIDQuMiAzLjkgNy40IDguMSA3LjRINjY0YTggOCAwIDAgMCA4LTguNEM2NjcuNiA2MDAuMyA1OTcuNSA1MzMgNTEyIDUzM3ptMTI4LTExMmE0OCA0OCAwIDEgMCA5NiAwIDQ4IDQ4IDAgMSAwLTk2IDB6IiAvPgo8L3N2Zz4=
+Run the tests to ensure contract functionality:
 
+```shell
+$ forge test
+```
 
+### Format
 
+Format Solidity files for consistency:
 
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+Generate gas usage snapshots:
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+Start a local Ethereum node:
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+Deploy the smart contract to an Ethereum network:
+
+```shell
+$ forge script DeployMoodNft --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+Interact with deployed contracts using Cast:
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+Access help menus for detailed usage:
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
+
+---
+
+## IPFS Integration
+
+This project uses IPFS to store NFT metadata and assets, ensuring:
+
+- **Decentralization**: Metadata and assets are stored off-chain for scalability and redundancy.
+- **Immutability**: Once uploaded, metadata and assets cannot be altered, ensuring NFT integrity.
+
+To upload metadata and assets to IPFS, you can use tools like `ipfs-cli` or services such as Pinata or Infura.
+
+---
+
+## Getting Started
+
+1. Clone this repository:
+
+    ```shell
+    $ git clone https://github.com/AlesxanDer1102/nft-project
+    ```
+
+2. Install Foundry:
+
+    Follow the [Foundry installation guide](https://book.getfoundry.sh/getting-started/installation.html).
+
+3. Install dependencies:
+
+    ```shell
+    $ make install
+    ```
+
+4. Configure `.env` file with your private key and RPC URL.
+
+5. Build 
+    ```shell
+    $ make build
+    ```
+6. Test 
+    ```shell
+    $ make test
+    ```
+7. Deploy in anvil and mint 
+    ```shell
+    make anvil 
+    make mint
+    ```
+7. To deploy in one blockchain you need to add the RPC_URL_BLOCKCHAIN and your PRIVATE_KEY to .env 
+and make
+ ```shell
+ forge script DeployMoodNft --rpc-url $(RPC_URL_BLOCKCHAIN) --private-key $(PRIVATE_KEY) --broadcast
+ forge script MintMoodNft --rpc-url $(RPC_URL_BLOCKCHAIN) --private-key $(PRIVATE_KEY) --broadcast
+ 
+ ```
+
+---
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or features you'd like to see.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
