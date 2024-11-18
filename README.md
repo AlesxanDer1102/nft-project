@@ -145,6 +145,7 @@ To upload metadata and assets to IPFS, you can use tools like `ipfs-cli` or serv
 7. To deploy in one blockchain you need to add the RPC_URL_BLOCKCHAIN and your PRIVATE_KEY to .env 
 and make
  ```shell
+ source .env
  forge script DeployMoodNft --rpc-url $(RPC_URL_BLOCKCHAIN) --private-key $(PRIVATE_KEY) --broadcast
  forge script MintMoodNft --rpc-url $(RPC_URL_BLOCKCHAIN) --private-key $(PRIVATE_KEY) --broadcast
  
